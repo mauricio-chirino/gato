@@ -1,0 +1,27 @@
+
+
+<div>
+       <h1><%= @post.title %></h1>
+          <p><%= @post.body %></p>
+        <p>
+          Publicado por: 
+          <% if @post.user.present? %>
+            <%= @post.user.name || @post.user.email %>
+          <% else %>
+            Usuario anónimo
+          <% end %>
+        </p>
+
+
+          <h2>Comentarios</h2>
+          <%= render @comments %>
+          <%= @post.user&.name %>
+          <%= form_with(model: [@post, @comment]) do |f| %>
+            <%= f.text_area :body %>
+            <%= f.submit "Comentar" %>
+          <% end %>
+
+          <h2>Reacciones</h2>
+          <%= button_to "Me gusta", [@post, Reaction.new(like: true)], method: :post %>
+          <%= button_to "No me gusta", [@post, Reaction.new(like: false)], method: :post %>
+</div>
