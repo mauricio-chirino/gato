@@ -8,8 +8,9 @@
   </p>
   <p>
     Publicado por: 
+   
     <% if @post.user.present? %>
-        <%= @post.user&.name || @post.user.email %>
+        <%= @post.user.name || @post.user.email %>
     <% else %>
           Usuario anónimo
     <% end %>

@@ -8,6 +8,14 @@
  
 <li>
   <p><%= comment.body %></p>
-  <p>Escrito por: <%= comment.user.name || "anonimo" %></p>
+  <p>Escrito por: <%= comment.user&.name || comment.user&.email || "anónimo" %></p>
+
+  
+
+
+
+
+
+
 </li> 
 
