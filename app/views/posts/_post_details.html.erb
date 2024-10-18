@@ -1,0 +1,11 @@
+<!-- app/views/posts/_post_details.html.erb -->
+<div class="post-details-content">
+  <h5><%= post.title %></h5>
+  <p><%= post.body %></p>
+serwfwe
+  <h5>Comentarios:</h5>
+  <% post.comments.each do |comment| %>
+    <p><%= comment.body %></p>
+  <% end %>
+
+</div>

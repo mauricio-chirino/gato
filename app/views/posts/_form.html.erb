@@ -1,0 +1,16 @@
+<!-- app/views/posts/_form.html.erb -->
+<%= form_with(model: Post.new, local: false) do |f| %>
+  <div>
+    <%= f.label :title, "Title" %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :content, "Content" %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div>
+    <%= f.submit "Create Post" %>
+  </div>
+<% end %>

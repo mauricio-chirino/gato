@@ -12,11 +12,12 @@ class PostsController < ApplicationController
       @comments = @post.comments.includes(:user)
       @comment = Comment.new
 
-    
-      respond_to do |format|
-        format.html 
-         format.turbo_stream { render turbo_stream: turbo_stream.replace('post-details', partial: 'details', locals: { post: @post }) }
-      end
+       respond_to do |format|
+         
+          format.turbo_stream { render turbo_stream: turbo_stream.replace("post-details", partial: "posts/post_details", locals: { post: @post }) }
+          format.html 
+       end
+
     end
    
 
@@ -26,15 +27,31 @@ class PostsController < ApplicationController
        @post = Post.new
      end
 
-     def create
+
+
+
+    def create
         @post = current_user.posts.new(post_params)
+
+
 
         if @post.save
           redirect_to @post, notice: 'Post creado exitosamente.'
         else
           render :new
         end
-      end
+
+
+
+        
+    end
+
+
+
+
+
+
+
 
      private
 

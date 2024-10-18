@@ -1,7 +1,7 @@
 
 
 <div>
-       <h1><%= @post.title %></h1>
+       <h5><%= @post.title %></h5>
           <p><%= @post.body %></p>
         <p>
           Publicado por: 
@@ -11,7 +11,7 @@
             Usuario anónimo
           <% end %>
         </p>
-
+fdgdfg
 
           <h2>Comentarios</h2>
           <%= render @comments %>
@@ -25,3 +25,5 @@
           <%= button_to "Me gusta", [@post, Reaction.new(like: true)], method: :post %>
           <%= button_to "No me gusta", [@post, Reaction.new(like: false)], method: :post %>
 </div>
+
+

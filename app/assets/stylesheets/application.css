@@ -184,7 +184,7 @@ img{ max-width:100%;}
   font-size: 12px;
   margin: 8px 0 0;
 }
-.received_withd_msg { width: 57%;}
+.received_withd_msg { width:90%;}
 .mesgs {
   float: left;
   padding: 30px 15px 0 25px;
@@ -231,4 +231,14 @@ img{ max-width:100%;}
 .msg_history {
   height: 516px;
   overflow-y: auto;
+}
+
+.decoracion li::marker {
+  color: transparent;
+}
+
+.color_finger{
+  color:red;
+  background: none;
+  border: none;
 }

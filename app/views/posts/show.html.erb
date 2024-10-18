@@ -1,26 +1,48 @@
   
+<%= turbo_frame_tag "post-details" do %>
+  <h5>
+    <%= @post.title %>
+  </h5>
+  <p>
+    <%= @post.body %>
+  </p>
+  <p>
+    Publicado por: 
+    <% if @post.user.present? %>
+        <%= @post.user&.name || @post.user.email %>
+    <% else %>
+          Usuario anónimo
+    <% end %>
+  </p>
 
-          <h1><%= @post.title %></h1>
-          <p><%= @post.body %></p>
+  <!--  <h5>Comentarios</h5> -->
+  <%= render @comments %>
+  <%= form_with(model: [@post, @comment]) do |f| %>
+      <%= f.text_area :body %>
+      <%= f.submit "Comentar" %>
+  <% end %>
 
-        <p>
-          Publicado por: 
-          <% if @post.user.present? %>
-            <%= @post.user.name || @post.user.email %>
-          <% else %>
-            Usuario anónimo
-          <% end %>
-        </p>
+    
+  
+  <div class="d-flex mb-3 ">
+    <div p-2>
+      <h5>Reacciones</h5>
+    </div>
+    <div p-2>
+      <%= button_to [@post, Reaction.new(like: true)], method: :post, class: "color_finger" do %>
+        <%= safe_join([content_tag(:i, "", class: "fa-solid fa-thumbs-up fa-xl"), ""]) %>
+      <% end %>
+    </div>
+    <div p-2>
+      <%= button_to [@post, Reaction.new(like: false)], method: :post, class: "color_finger" do %>
+        <%= safe_join([content_tag(:i, "", class: "fa-solid fa-thumbs-down fa-xl"), ""]) %>
+      <% end %>
+    </div>
+  </div>
 
 
-          <h2>Comentarios</h2>
-          <%= render @comments %>
-          <%= @post.user&.name %>
-          <%= form_with(model: [@post, @comment]) do |f| %>
-            <%= f.text_area :body %>
-            <%= f.submit "Comentar" %>
-          <% end %>
 
-          <h2>Reacciones</h2>
-          <%= button_to "Me gusta", [@post, Reaction.new(like: true)], method: :post %>
-          <%= button_to "No me gusta", [@post, Reaction.new(like: false)], method: :post %>
+
+
+
+<% end %>
