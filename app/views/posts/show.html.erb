@@ -29,21 +29,15 @@
     <div p-2>
       <h5>Reacciones</h5>
     </div>
-    <div p-2>
-      <%= button_to [@post, Reaction.new(like: true)], method: :post, class: "color_finger" do %>
-        <%= safe_join([content_tag(:i, "", class: "fa-solid fa-thumbs-up fa-xl"), ""]) %>
+    <div class="p-2">
+      <%= button_to post_reactions_path(@post), method: :post, params: { reaction: { like: true } }, class: "color_finger" do %>
+      <%= safe_join([content_tag(:i, "", class: "fa-solid fa-thumbs-up fa-xl"), ""]) %>
       <% end %>
     </div>
-    <div p-2>
-      <%= button_to [@post, Reaction.new(like: false)], method: :post, class: "color_finger" do %>
-        <%= safe_join([content_tag(:i, "", class: "fa-solid fa-thumbs-down fa-xl"), ""]) %>
+    <div class="p-2">
+      <%= button_to post_reactions_path(@post), method: :post, params: { reaction: { like: false } }, class: "color_finger" do %>
+      <%= safe_join([content_tag(:i, "", class: "fa-solid fa-thumbs-down fa-xl"), ""]) %>
       <% end %>
-    </div>
+      </div>
   </div>
-
-
-
-
-
-
 <% end %>
