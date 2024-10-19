@@ -1,11 +1,40 @@
 <!-- app/views/posts/_post_details.html.erb -->
-<div class="post-details-content">
-  <h5><%= post.title %></h5>
-  <p><%= post.body %></p>
-serwfwe
-  <h5>Comentarios:</h5>
-  <% post.comments.each do |comment| %>
-    <p><%= comment.body %></p>
-  <% end %>
+<%= turbo_frame_tag "post-details" do %>
+  <h5>
+    <%= @post.title %>
+  </h5>
+  <p>
+    <%= @post.body %>
+  </p>
+  <p>
+    Publicado por: 
+   
+    <% if @post.user.present? %>
+        <%= @post.user.name || @post.user.email %>
+    <% else %>
+          Usuario anónimo
+    <% end %>
+  </p>
 
-</div>
+
+    
+  
+  <div class="d-flex mb-4 ">
+    <div p-2>
+      <h5>Reacciones</h5>
+    </div>
+    <div class="p-2">
+      <%= button_to post_reactions_path(@post), method: :post, params: { reaction: { like: true } }, class: "color_finger" do %>
+      <%= safe_join([content_tag(:i, "", class: "fa-solid fa-thumbs-up fa-xl"), ""]) %>
+      <% end %>
+    </div>
+    <div class="p-2">
+      <%= button_to post_reactions_path(@post), method: :post, params: { reaction: { like: false } }, class: "color_finger" do %>
+      <%= safe_join([content_tag(:i, "", class: "fa-solid fa-thumbs-down fa-xl"), ""]) %>
+      <% end %>
+    </div>
+    <div class="p-2">
+      <p> Reaccion agregada</p>
+    </div>
+  </div>
+<% end %>

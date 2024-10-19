@@ -1,5 +1,7 @@
 <!-- app/views/posts/_form.html.erb -->
-<%= form_with(model: Post.new, local: false) do |f| %>
+<%
+=begin%>
+ <%= form_with(model: Post.new, local: false) do |f| %>
   <div>
     <%= f.label :title, "Title" %>
     <%= f.text_field :title %>
@@ -13,4 +15,14 @@
   <div>
     <%= f.submit "Create Post" %>
   </div>
-<% end %>
+<% end %> 
+<%
+=end%>
+
+
+ <!--  <h5>Comentarios</h5> -->
+  <%= render @comments %>
+  <%= form_with(model: [@post, @comment]) do |f| %>
+      <%= f.text_area :body %>
+      <%= f.submit "Comentar" %>
+  <% end %>

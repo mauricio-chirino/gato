@@ -242,3 +242,20 @@ img{ max-width:100%;}
   background: none;
   border: none;
 }
+
+
+
+.submit_with_icon {
+  position: relative;
+  padding-right: 30px; /* Ajusta este valor según el tamaño del ícono */
+}
+
+.submit_with_icon::after {
+  content: "\f1d8"; /* Código unicode del ícono FontAwesome (avión de papel) */
+  font-family: "FontAwesome";
+  position: absolute;
+  right: 10px; /* Ajusta la posición del ícono */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px; /* Ajusta el tamaño del ícono */
+}

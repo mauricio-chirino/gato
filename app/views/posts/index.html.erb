@@ -8,12 +8,16 @@
               <h4>Recientes</h4>
             </div>
             <div class="srch_bar ">
-              <div class="stylish-input-group">
+              <%
+=begin%>
+ <div class="stylish-input-group">
                 <input type="text" class="search-bar"  placeholder="Buscar" >
                 <span class="input-group-addon">
                   <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
                 </span> 
-              </div>
+              </div> 
+<%
+=end%>
             </div>
           </div>
           <div class="inbox_chat">
@@ -61,21 +65,27 @@
               </div>
               <div class="received_msg">
                 <div class="received_withd_msg">
-                  <div class="col-md-12 sin decoracion">
+                  <div class="col-md-12 decoracion">
                     <!-- Link que carga dinámicamente los detalles de la publicación en el turbo-frame -->
                     <%= turbo_frame_tag "post-details" do %>
-                        <h4>Selecciona una publicación para ver los detalles.</h4>   
+                        <h5>Selecciona una publicación para ver los detalles.</h5>   
                     <% end %>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="type_msg">
+          <div class="type_msg my-2">
             <div class="input_msg_write">
-              <input type="text" class="write_msg" placeholder="Type a message" />
+
+           
+              <%
+=begin%>
+ <input type="text" class="write_msg" placeholder="Type a message" />
               
-              <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o"aria-hidden="true"></i></button>
+              <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o"aria-hidden="true"></i></button> 
+<%
+=end%>
             </div>
           </div>
         </div>
