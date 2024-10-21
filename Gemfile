@@ -58,7 +58,7 @@ end
 
 
 gem 'devise', '~> 4.9', '>= 4.9.4'
-gem 'faker', '~> 3.4', '>= 3.4.2'
+gem 'faker', '~> 3.5'
 gem 'annotate', '~> 3.2'
 gem 'rspec', '~> 3.13' # test
 gem "rspec-rails", "~> 7.0"
